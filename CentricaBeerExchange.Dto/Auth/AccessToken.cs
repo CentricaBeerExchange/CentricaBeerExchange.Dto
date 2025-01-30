@@ -1,4 +1,4 @@
-﻿namespace CentricaBeerExchange.Dto.Auth;
+namespace CentricaBeerExchange.Dto.Auth;
 
 [DataContract]
 public class AccessToken
@@ -8,14 +8,14 @@ public class AccessToken
         Token = string.Empty;
     }
 
-    public AccessToken(string token, DateTime expiresAtUtc)
+    public AccessToken(string token, DateTimeOffset expiresAtUtc)
     {
         Token = token;
         ExpiresAtUtc = expiresAtUtc;
     }
 
     [DataMember(Order = 1)] public string Token { get; set; }
-    [DataMember(Order = 2)] public DateTime ExpiresAtUtc { get; set; }
+    [DataMember(Order = 2)] public DateTimeOffset ExpiresAtUtc { get; set; }
 
     internal static AccessToken Empty => new();
 }
